@@ -23,8 +23,8 @@
      var secondPlayerHealth = 100;
 
      //players damage
-     var firstPlayerDamage = 15;
-     var secondPlayerDamage = 15;
+     var firstPlayerDamage = 20;
+     var secondPlayerDamage = 20;
 
      var round =1;
 
@@ -32,7 +32,7 @@
      function fight(){
          console.log("This is the Fight function");
          alert(firstPlayerName + " : " + firstPlayerHealth + " vs " + secondPlayerName + " : " + secondPlayerHealth + '\n' +
-             "         " +"ROUND " + round + " FIGHT! ");
+             "                  " +"START ");
 
          for (var i=0; i< 10; i++){
 
@@ -47,12 +47,28 @@
              var firstPlayer = Math.floor(Math.random() * (firstPlayerDamage - minDamage1) + minDamage1);
              var secondPlayer = Math.floor(Math.random() * (secondPlayerDamage - minDamage2) + minDamage2);
 
-             //This is the output for random variables
-             console.log(firstPlayer);
-             console.log(secondPlayer);
-         }
+             //This is the actual damage being inflicted to the player.
+             firstPlayerHealth -= firstPlayer;
+             secondPlayerHealth -= secondPlayer;
 
-         //winnerCheck()
+             //This is the output for random variables
+
+
+             var results = winnerCheck();
+             console.log(results);
+
+             if (results === "no winner"){
+                round ++;
+                 alert(firstPlayerName + " : " + firstPlayerHealth + " vs " + secondPlayerName + " : " + secondPlayerHealth + '\n' +
+                     "       " +"ROUND " + round + " FIGHT! ");
+             }else{
+                 alert(results);
+                 break;
+             }
+
+         };
+
+
 
      };
 
@@ -63,6 +79,16 @@
      */
     function winnerCheck(){
 
+         var result = "no winner";
+          console.log("The winners circle");
+        if (firstPlayerHealth < 1 && secondPlayerHealth < 1){
+            result = "You both Lose";
+        }else if(firstPlayerHealth < 1){
+            result=secondPlayerName +" shuns defeat!"
+        }else if(secondPlayerHealth < 1){
+            result = firstPlayerName + " is victorious!"
+        }
+         return result;
     };
 
     /* The program get's started here */
