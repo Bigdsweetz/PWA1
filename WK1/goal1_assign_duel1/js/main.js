@@ -66,11 +66,11 @@
                  break;
              }
 
-         };
+         }
 
 
 
-     };
+     }
 
 
 
@@ -89,7 +89,7 @@
             result = firstPlayerName + " is victorious!"
         }
          return result;
-    };
+    }
 
     /* The program get's started here */
     console.log("Program starts here");

@@ -67,8 +67,7 @@
 
 
      /* This function is invoked after each round and returns a string of either the winner, the loser, a tie (both die)
-     or no winner yet. This function does the conditional logic to determine if there is a winner or not.)
-     */
+     or no winner yet. This function does the conditional logic to determine if there is a winner or not.)*/
     function winnerCheck(){
 
          var result = "no winner";
